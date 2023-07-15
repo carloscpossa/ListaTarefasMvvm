@@ -3,6 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ListaDeTarefas.App">
     <Application.Resources>
-    
+
+        <Color x:Key="Principal">#4180ab</Color>
+        <Color x:Key="Escuro">Black</Color>
+        <Color x:Key="Claro">White</Color>
+
+        <Style x:Key="BotaoPrincipal" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource Principal}" />
+            <Setter Property="TextColor" Value="{StaticResource Escuro}" />
+            <Setter Property="ContentLayout" Value="Left, 10" />
+            <Setter Property="HeightRequest" Value="60" />
+            <Setter Property="CornerRadius" Value="30" />
+        </Style>
+
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+        </Style>
+                        
+        <Style TargetType="NavigationPage">
+            <Setter Property="BackgroundColor" Value="#e4ebf0" />
+            <Setter Property="BarTextColor" Value="Black" />
+        </Style>
     </Application.Resources>
 </Application>
