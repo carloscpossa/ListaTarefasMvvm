@@ -1,13 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="Adicionar Tarefa"
+             Title="Adicionar Nova Tarefa"
              x:Class="ListaDeTarefas.Views.AdicionaTarefa">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Adicionar Tarefa!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="10,10,10,0">
+            
+            <Label 
+                Text="Descrição da Tarefa"
+                />
+            
+            <Entry 
+                Placeholder="Descrição da tarefa"
+                ClearButtonVisibility="WhileEditing"
+                IsSpellCheckEnabled="True"
+                Text="{Binding Descricao}"
+                />
+
+            <Button 
+                Style="{StaticResource BotaoPrincipal}"
+                Text="Salvar"
+                Command="{Binding SalvarTarefaCommand}"                
+                />
+
+            <Label 
+                Text="{Binding MensagemSucesso}"
+                TextColor="DarkGreen"
+                />
+
+            <Label 
+                Text="{Binding MensagemErro}"
+                TextColor="DarkRed"
+                />
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

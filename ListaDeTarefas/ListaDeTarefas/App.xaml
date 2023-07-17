@@ -9,8 +9,8 @@
         <Color x:Key="Claro">White</Color>
 
         <Style x:Key="BotaoPrincipal" TargetType="Button">
-            <Setter Property="BackgroundColor" Value="{StaticResource Principal}" />
-            <Setter Property="TextColor" Value="{StaticResource Escuro}" />
+            <Setter Property="BackgroundColor" Value="Blue" />
+            <Setter Property="TextColor" Value="{StaticResource Claro}" />
             <Setter Property="ContentLayout" Value="Left, 10" />
             <Setter Property="HeightRequest" Value="60" />
             <Setter Property="CornerRadius" Value="30" />

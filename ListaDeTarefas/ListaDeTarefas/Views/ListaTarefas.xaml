@@ -1,22 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"                          
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"              
              x:Class="ListaDeTarefas.Views.ListaTarefas"
              Title="Lista de Tarefas">
 
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="10,10,0,0">
             <Button Style="{StaticResource BotaoPrincipal}" 
-                    Text="Ir para Nova tarefa"
-                    Command="{Binding IrParaAdicionaTarefaCommand}"
-                    Margin="10,10,0,0"
+                    Text="Adicionar Nova tarefa"
+                    Command="{Binding IrParaAdicionaTarefaCommand}"                    
                     HorizontalOptions="Start"
                     />
+            
+            <ListView 
+                ItemsSource="{Binding Tarefas}"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding AtualizarListaTarefasCommand}"
+                IsRefreshing="{Binding ListaTarefasEmAtualizacao}"
+                >
+                
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Lista de Tarefas"
+                               TextColor="Blue">
+                        </Label>                               
+                    </StackLayout>
+                </ListView.Header>
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout Orientation="Vertical" AutomationId="">
+                                <Label 
+                                    Text="{Binding Descricao}"/>
+                                <Label 
+                                    Text="{Binding TerminoDesejado, StringFormat=\{0:dd/MM/yyyy\}}" 
+                                    FontSize="Micro"
+                                    >
+                                </Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
 
+                <ListView.Footer>
+                    <FlexLayout>
+                        <Label 
+                            Text="Quantidade de Tarefas: "
+                            FontAttributes="Bold"
+                        />
+                        <Label 
+                            Text="{Binding QuantidadeTarefas}"
+                        />
+                    </FlexLayout>
+                </ListView.Footer>
 
-            <Label Text="{Binding Nome}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            </ListView>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
