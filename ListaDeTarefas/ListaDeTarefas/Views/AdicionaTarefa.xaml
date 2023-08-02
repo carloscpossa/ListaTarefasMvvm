@@ -17,6 +17,16 @@
                 Text="{Binding Descricao}"
                 />
 
+            <Label
+                Text="Término desejado"
+                />
+
+            <DatePicker
+                MinimumDate="{Binding DataMinima}"
+                Date="{Binding TerminoDesejado}"
+                Format="dd/MM/yyyy"
+                />
+
             <Button 
                 Style="{StaticResource BotaoPrincipal}"
                 Text="Salvar"

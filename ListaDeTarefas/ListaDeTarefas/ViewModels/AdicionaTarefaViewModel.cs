@@ -22,6 +22,16 @@ namespace ListaDeTarefas.ViewModels
             set => DefinirValor(ref descricao, value);
         }
 
+        public DateTime DataMinima
+            => DateTime.Today;
+
+        private DateTime terminoDesejado = DateTime.Today;
+        public DateTime TerminoDesejado 
+        {
+            get => terminoDesejado;
+            set => DefinirValor(ref terminoDesejado, value);
+        }
+
         public ICommand SalvarTarefaCommand { get; set; }
 
         private string mensagemSucesso = "";
@@ -44,7 +54,7 @@ namespace ListaDeTarefas.ViewModels
             MensagemErro = "";
             try
             {
-                tarefaServico.AdicionarTarefa(Descricao);
+                tarefaServico.AdicionarTarefa(Descricao, TerminoDesejado);
                 MensagemSucesso = "Tarefa adicionada com sucesso!";                
             }
             catch (Exception ex)

@@ -1,7 +1,9 @@
-﻿namespace ListaDeTarefas.Dominio.Servicos
+﻿using System;
+
+namespace ListaDeTarefas.Dominio.Servicos
 {
     public interface ITarefaServico
     {
-        void AdicionarTarefa(string descricao);
+        void AdicionarTarefa(string descricao, DateTime terminoDesejado);
     }
 }

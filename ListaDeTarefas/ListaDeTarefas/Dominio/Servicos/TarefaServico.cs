@@ -12,9 +12,9 @@ namespace ListaDeTarefas.Dominio.Servicos
         {
             this.tarefaRepositorio = tarefaRepositorio;
         }
-        public void AdicionarTarefa(string descricao)
+        public void AdicionarTarefa(string descricao, DateTime terminoDesejado)
         {
-            var tarefa = new Tarefa(descricao, DateTime.Now.AddDays(7), Prioridade.Media);
+            var tarefa = new Tarefa(descricao, terminoDesejado, Prioridade.Media);
             tarefaRepositorio.Adicionar(tarefa);
         }
     }
